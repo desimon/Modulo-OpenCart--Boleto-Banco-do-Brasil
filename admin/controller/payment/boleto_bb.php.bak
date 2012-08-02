@@ -90,24 +90,23 @@ class ControllerPaymentBoletobb extends Controller {
 			$this->data['error_warning'] = '';
 		}
 
-  		$this->document->breadcrumbs = array();
-
-   		$this->document->breadcrumbs[] = array(
-       		'href'      => HTTPS_SERVER . 'index.php?route=common/home&token=' . $this->session->data['token'],
+  		$this->data['breadcrumbs'] = array();
+		
+   		$this->data['breadcrumbs'][] = array(
        		'text'      => $this->language->get('text_home'),
-      		'separator' => FALSE
+			'href'      => $this->url->link('common/home', 'token=' . $this->session->data['token'], 'SSL'),
+      		'separator' => false
    		);
-
-   		$this->document->breadcrumbs[] = array(
-       		//'href'      => $this->url->https('extension/payment'),
-			'href'      => HTTPS_SERVER . 'index.php?route=extension/payment&token=' . $this->session->data['token'],
+		
+   		$this->data['breadcrumbs'][] = array(
        		'text'      => $this->language->get('text_payment'),
+			'href'      => $this->url->link('extension/payment', 'token=' . $this->session->data['token'], 'SSL'),      		
       		'separator' => ' :: '
    		);
-
-   		$this->document->breadcrumbs[] = array(
-       		'href'      => HTTPS_SERVER .'index.php?route=payment/boleto_bb&token=' . $this->session->data['token'],
+		
+   		$this->data['breadcrumbs'][] = array(
        		'text'      => $this->language->get('heading_title'),
+			'href'      => $this->url->link('payment/boleto_bb', 'token=' . $this->session->data['token'], 'SSL'),
       		'separator' => ' :: '
    		);
 				
